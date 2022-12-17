@@ -1,6 +1,6 @@
 # Read the iput.txt file 
 
-with open('input.txt', encoding='utf-8') as f:
+with open('day_one/input.txt', encoding='utf-8') as f: 
     content = f.readlines()
 
     total_calories = 0
