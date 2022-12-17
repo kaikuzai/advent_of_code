@@ -1,18 +1,24 @@
-# Read the txt file 
-import urllib.request
+# Read the iput.txt file 
 
-url = 'https://adventofcode.com/2022/day/1/input'
+with open('input.txt', encoding='utf-8') as f:
+    content = f.readlines()
 
-urllib.request.urlretrieve(url, 'input.txt')
+    total_calories = 0
+    calorie_sums = []
 
-with open('input.txt', 'r') as f:
-    content = f.read()
+    for i, v in enumerate(content):
+        if i + 1 == len(content):
+            total_calories += int(v)
+            calorie_sums.append(total_calories)
+        elif v not in ['\n']:
+            total_calories += int(v)
+        else:
+            calorie_sums.append(total_calories)
+            total_calories = 0 
 
-print(content)
-# Sepperate all the indexes into groups by using the blank spaces as deviders
+print(calorie_sums)
+print(max(calorie_sums))
 
-# Assign each group and aggregate the sum values of that group
+sorted_list = sorted(calorie_sums,reverse=True)
+print(sum(sorted_list[:3]))
 
-# Find the group with the highest aggregation
-
-# Print highest aggregation
